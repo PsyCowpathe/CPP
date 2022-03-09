@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 16:26:03 by agirona           #+#    #+#             */
-/*   Updated: 2022/03/04 15:57:13 by agirona          ###   ########lyon.fr   */
+/*   Created: 2022/03/04 16:09:36 by agirona           #+#    #+#             */
+/*   Updated: 2022/03/09 20:31:52 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "PhoneBook.hpp"
 
-int		main(int argc, char	**argv)
+int		main(void)
 {
-	int		i;
-	int		c;
-	char	tmp;
+	PhoneBook	book;
+	std::string	input;
+	int		ret;
 
-	if (argc == 1)
+	ret = 2;
+	while (ret > 0)
 	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return (0);
+		if (ret != 1)
+			std::cout << "Available command : \"ADD\", \"SEARCH\", \"EXIT\"." << std::endl;
+		std::getline(std::cin, input);
+		ret = book.key_word(input);
 	}
-	i = 1;
-	while (i < argc)
-	{
-		c = 0;
-		while (argv[i][c])
-		{
-			tmp = toupper(argv[i][c++]);
-			std::cout << tmp;
-		}
-		i++;
-	}
-	std::cout << std::endl;
 	return (0);
 }

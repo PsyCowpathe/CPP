@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 16:26:03 by agirona           #+#    #+#             */
-/*   Updated: 2022/03/04 15:57:13 by agirona          ###   ########lyon.fr   */
+/*   Created: 2022/03/04 16:20:37 by agirona           #+#    #+#             */
+/*   Updated: 2022/03/09 20:31:55 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
-int		main(int argc, char	**argv)
+# include <iostream>
+
+class	Contact
 {
-	int		i;
-	int		c;
-	char	tmp;
+	public:
+		Contact(void);
+		~Contact(void);
 
-	if (argc == 1)
-	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-		return (0);
-	}
-	i = 1;
-	while (i < argc)
-	{
-		c = 0;
-		while (argv[i][c])
-		{
-			tmp = toupper(argv[i][c++]);
-			std::cout << tmp;
-		}
-		i++;
-	}
-	std::cout << std::endl;
-	return (0);
-}
+		void		setall(std::string, int d);
+		std::string	getall(int d) const;
+		void		setset(int state);
+		int			getset(void) const;
+
+	private:
+			std::string	data[5];
+			int		set;
+};
+
+#endif
+
