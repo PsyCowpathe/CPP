@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 15:59:42 by agirona           #+#    #+#             */
-/*   Updated: 2022/03/09 20:31:56 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/03/14 16:05:47 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class	PhoneBook
 		void		add(void);
 		int			general_show(void);
 		void		specific_show(void);
-		void		contact_info(int space, std::string str);
+		void		contact_info(std::string str);
 };
 
 #endif

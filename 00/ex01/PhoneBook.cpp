@@ -6,11 +6,13 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 15:59:49 by agirona           #+#    #+#             */
-/*   Updated: 2022/03/09 20:31:50 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/03/14 16:05:49 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <iomanip>
+#include <sstream>
 
 PhoneBook::PhoneBook(void)
 {
@@ -49,27 +51,20 @@ void	PhoneBook::print_and_get(std::string print, int i, int d)
 	this->contact[i].setall(input, d);
 }
 
-void	PhoneBook::contact_info(int space, std::string str)
+void	PhoneBook::contact_info(std::string str)
 {
-	int		i;
-	int		limit;
+	char			trunc[15];
+	std::string		tmp;
 
-	i = 0;
-	while (i < space)
+	if (str.size() > 10)
 	{
-		std::cout << " ";
-		i++;
+		std::istringstream tmp(str);
+		tmp >> std::setw(10) >> trunc;
+		std::cout << trunc << ".";
 	}
-	i = 0;
-	limit = 10;
-	if (str.size() > 10)
-		limit = 9;
-	while (str[i] && i < limit)
-		std::cout << str[i++];
-	if (str.size() > 10)
-		std::cout << ".";
+	else
+		std::cout << std::setw(10) << str;
 	std::cout << "|";
-
 }
 
 int		PhoneBook::general_show(void)
@@ -92,7 +87,7 @@ int		PhoneBook::general_show(void)
 				tmp = std::to_string(i);
 			else
 				tmp = this->contact[i].getall(d);
-			contact_info(10 - tmp.size(), tmp);
+			contact_info(tmp);
 			d++;
 		}
 		std::cout << std::endl;
@@ -115,17 +110,24 @@ void	PhoneBook::specific_show(void)
 	if (index.find_first_not_of("01234567") == std::string::npos)
 	{
 		value = stoi(index);
-		d = 0;
-		while (d < 5)
-		{
-			std::cout << this->print[d] << " ";
-			std::cout << this->contact[value].getall(d) << std::endl;
-			d++;
+		if (this->contact[value].getset() == 1)
+		{	
+			d = 0;
+			while (d < 5)
+			{
+				std::cout << this->print[d] << " ";
+				std::cout << this->contact[value].getall(d) << std::endl;
+				d++;
+			}
 		}
-		std::cout << value;
+		else
+			 std::cout << "\tError no contact is registered for this index." << std::endl;
 	}
 	else
-		std::cout << "\tIncorrect index value, you must only enter digits between 0 and 7." << std::endl;
+	{
+		std::cout << "\tError the index is incorect." << std::endl;
+		std::cout << "\tReminder : You must only enter digits between 0 and 7." << std::endl;
+	}
 }
 
 void	PhoneBook::add(void)
