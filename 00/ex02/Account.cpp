@@ -6,21 +6,36 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 16:20:27 by agirona           #+#    #+#             */
-/*   Updated: 2022/03/14 22:58:34 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/03/21 18:27:04 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
+#include <sys/time.h>
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
+std::string		horodotage(void)
+{
+	time_t		 rawtime;
+	struct 		tm *timeinfo;
+	char 		buffer[80];
+	std::string	result;
+
+	time (&rawtime);
+	timeinfo = localtime (&rawtime);
+	strftime(buffer, 80, "[%G%m%e_%H%M%S]",timeinfo);
+	result = buffer;
+	return (result);
+}
+
 Account::Account(int initial_deposit)
 {
-	std::cout << "index:" << _nbAccounts << ";";
+	std::cout << horodotage() << " index:" << _nbAccounts << ";";
 	this->_accountIndex = _nbAccounts;
 	this->_nbWithdrawals = 0;
 	this->_nbDeposits = 0;
@@ -33,7 +48,7 @@ Account::Account(int initial_deposit)
 
 Account::~Account(void)
 {
-	std::cout << "index:" << this->_accountIndex << ";";
+	std::cout << horodotage() << " index:" << this->_accountIndex << ";";
 	std::cout << "amount:" << checkAmount() << ";";
 	std::cout << "closed" << std::endl;
 }
@@ -47,7 +62,7 @@ void	Account::makeDeposit(int deposit)
 	this->_nbDeposits++;
 	Account::_totalAmount += deposit;
 	Account::_totalNbDeposits++;
-	std::cout << "index:" << this->_accountIndex << ";";
+	std::cout << horodotage() << " index:" << this->_accountIndex << ";";
 	std::cout << "p_amount:" << save << ";";
 	std::cout << "deposit:" << deposit << ";";
 	std::cout << "amount:" << this->_amount << ";";
@@ -69,7 +84,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 		Account::_totalNbWithdrawals++;
 		this->_nbWithdrawals++;
 	}
-	std::cout << "index:" << this->_accountIndex << ";";
+	std::cout << horodotage() <<  " index:" << this->_accountIndex << ";";
 	std::cout << "p_amount:" << save << ";";
 	if (done == 1)
 	{
@@ -92,7 +107,7 @@ int		Account::checkAmount(void) const
 
 void	Account::displayStatus(void) const
 {
-	std::cout << "index:" << this->_accountIndex << ";";
+	std::cout << horodotage() <<  " index:" << this->_accountIndex << ";";
 	std::cout << "amount:" << this->_amount << ";";
 	std::cout << "deposits:" << this->_nbDeposits << ";";
 	std::cout << "withdrawals:" << this->_nbWithdrawals << std::endl;
@@ -120,7 +135,7 @@ int		Account::getNbWithdrawals(void)
 
 void	Account::displayAccountsInfos(void)
 {
-	std::cout << "accounts:" << getNbAccounts() << ";";
+	std::cout << horodotage() << " accounts:" << getNbAccounts() << ";";
 	std::cout << "total:" << getTotalAmount() << ";";
 	std::cout << "deposits:" << getNbDeposits() << ";";
 	std::cout << "withdrawals:" << getNbWithdrawals() << std::endl;
