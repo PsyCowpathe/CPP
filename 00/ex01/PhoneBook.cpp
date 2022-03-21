@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 15:59:49 by agirona           #+#    #+#             */
-/*   Updated: 2022/03/14 16:05:49 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/03/21 17:19:59 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ void	PhoneBook::contact_info(std::string str)
 
 int		PhoneBook::general_show(void)
 {
-	int				i;
-	int				d;
-	std::string		tmp;
+	int					i;
+	int					d;
+	std::stringstream	tmp;
 
 	i = 0;
 	std::cout << "_____________________________________________" << std::endl;
@@ -84,10 +84,12 @@ int		PhoneBook::general_show(void)
 		while (d < 3)
 		{
 			if (d == -1)
-				tmp = std::to_string(i);
+			{
+				tmp << i;
+				contact_info(tmp.str());
+			}
 			else
-				tmp = this->contact[i].getall(d);
-			contact_info(tmp);
+				contact_info(this->contact[i].getall(d));
 			d++;
 		}
 		std::cout << std::endl;
@@ -99,9 +101,10 @@ int		PhoneBook::general_show(void)
 
 void	PhoneBook::specific_show(void)
 {
-	std::string		index;
-	int				value;
-	int				d;
+	std::string			index;
+	std::stringstream	tmp;
+	int					value;
+	int						d;
 
 	std::cout << "\tPlease enter an index to see full contact information.";
 	std::cout << index << std::endl;
@@ -109,7 +112,8 @@ void	PhoneBook::specific_show(void)
 		std::getline(std::cin, index);
 	if (index.find_first_not_of("01234567") == std::string::npos)
 	{
-		value = stoi(index);
+		tmp << index;
+		tmp >> value;
 		if (this->contact[value].getset() == 1)
 		{	
 			d = 0;
