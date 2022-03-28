@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 15:59:49 by agirona           #+#    #+#             */
-/*   Updated: 2022/03/21 17:19:59 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/03/28 17:54:29 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,10 @@ void	PhoneBook::print_and_get(std::string print, int i, int d)
 
 void	PhoneBook::contact_info(std::string str)
 {
-	char			trunc[15];
-	std::string		tmp;
-
 	if (str.size() > 10)
 	{
-		std::istringstream tmp(str);
-		tmp >> std::setw(10) >> trunc;
-		std::cout << trunc << ".";
+		str.resize(9);
+		std::cout << str << ".";
 	}
 	else
 		std::cout << std::setw(10) << str;
@@ -85,6 +81,7 @@ int		PhoneBook::general_show(void)
 		{
 			if (d == -1)
 			{
+				tmp.str("");
 				tmp << i;
 				contact_info(tmp.str());
 			}
