@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 18:16:43 by agirona           #+#    #+#             */
-/*   Updated: 2022/03/30 13:19:49 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/03/30 13:27:50 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Zombie::Zombie(void)
 {
-	std::cout << "created : " << this->name << std::endl;
+	std::cout << "constructor called" << std::endl;
 }
 
 Zombie::~Zombie(void)
