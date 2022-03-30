@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 18:16:43 by agirona           #+#    #+#             */
-/*   Updated: 2022/03/28 19:45:24 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/03/30 13:19:49 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,4 @@ void	Zombie::annonce(void)
 void	Zombie::setName(std::string name)
 {
 	this->name = name;
-}
-
-Zombie	*newZombie(std::string name)
-{
-	Zombie	*zombie;
-
-	zombie = new Zombie;
-	zombie->setName(name);
-	return (zombie);
-}
-
-void	randomChump(std::string name)
-{
-	Zombie	zombie;
-
-	zombie.setName(name);
-	zombie.annonce();
 }
