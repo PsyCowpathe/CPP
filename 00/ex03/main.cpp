@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 18:45:17 by agirona           #+#    #+#             */
-/*   Updated: 2022/03/30 19:39:44 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/03/30 19:49:15 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,23 @@
 void	replace(std::ifstream &file, std::ofstream &output, std::string s1, std::string s2)
 {
 	std::string		line;
-	int				position;
+	size_t			position;
 	int				size;
 
 	size = s1.size();
 	while (std::getline(file, line))
 	{
 		position = 0;
-		while (position != -1)
+		while (position != std::string::npos)
 		{
 			position = line.find(s1);
-			if (position != -1)
+			if (position != std::string::npos)
 			{
 				line.erase(position, size);
 				line.insert(position, s2);
 			}
 		}
 		output << line << std::endl;
-		std::cout << position << std::endl;
 	}
 }
 
@@ -43,6 +42,11 @@ int		main(int argc, char **argv)
 	{
 		std::ifstream	file(argv[1]);
 		std::ofstream	output(std::string(argv[1]) + ".replace");
+		if (std::string(argv[2]).empty() == true)
+		{
+			std::cout << "Error search string must not be empty" << std::endl; 
+			return (1);
+		}
 		if (file.is_open())
 		{
 			replace(file, output, argv[2], argv[3]);
