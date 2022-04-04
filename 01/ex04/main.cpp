@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 18:45:17 by agirona           #+#    #+#             */
-/*   Updated: 2022/03/31 17:52:47 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/04 17:16:24 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	replace(std::ifstream &file, std::ofstream &output, std::string s1, std::st
 			{
 				line.erase(position, s1.size());
 				line.insert(position, s2);
-				std::cout << "tmp = " << line << std::endl;
 				position += s2.size();
 			}
 		}
