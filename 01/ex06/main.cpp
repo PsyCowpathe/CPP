@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 18:17:18 by agirona           #+#    #+#             */
-/*   Updated: 2022/03/31 19:46:50 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/04 15:59:21 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 int		main(int argc, char **argv)
 {
-	Harl	harl;
 
 	if (argc == 2)
+	{
+		Harl	harl;
 		harl.filter(argv[1]);
+	}
 	else
 	{
 		std::cout << "Error : Usage ./harlFilter <level>" << std::endl;
