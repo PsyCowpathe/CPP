@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 19:15:19 by agirona           #+#    #+#             */
-/*   Updated: 2022/04/04 21:06:02 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/05 18:17:54 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@ Fixed::Fixed(const Fixed &fixed)
 	*this = fixed;
 }
 
-Fixed::Fixed(const int raw)
+Fixed::Fixed(const int value)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->value = raw << wtf;
+	this->value = value << wtf;
 }
 
-Fixed::Fixed(const float raw)
+Fixed::Fixed(const float value)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->value = roundf(raw * (1 << wtf));
+	this->value = (int)(std::roundf(value * std::pow(2, wtf)));
 }
 
 Fixed::~Fixed(void)
@@ -42,27 +42,25 @@ Fixed::~Fixed(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-
 int		Fixed::getRawBits(void) const
 {
 	return (this->value);
 }
 
-void	Fixed::setRawBits(const int raw)
+void	Fixed::setRawBits(const int value)
 {
-	this->value = raw;
+	this->value = value;
 }
 
 float	Fixed::toFloat(void) const
 {
-	return ((this->value / (float)(1 << wtf)));
+	return ((float)(this->value / std::pow(2, wtf)));
 }
 
 int		Fixed::toInt(void) const
 {
 	return (this->value >> wtf);
 }
-
 
 Fixed	&Fixed::operator=(const Fixed &rhs)
 {
