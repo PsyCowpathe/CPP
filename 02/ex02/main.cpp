@@ -15,15 +15,57 @@
 
 int main(void)
 {
-	Fixed a;
-	Fixed b;
-	//Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	std::cout << a << std::endl;
-	//std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	//std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
+	Fixed a(1);
+	Fixed b(5);
+
+	std::cout << "Res = 0 = ";
+	std::cout << (a > b) << std::endl;
+	std::cout << "Res = 1 = ";
+	std::cout << (a < b) << std::endl;
+	std::cout << "Res = 6 = ";
+	std::cout << (a.toInt() + b.toInt()) << std::endl;
+	std::cout << "Res = -4 = ";
+	std::cout << (a.toInt() - b.toInt()) << std::endl;
+	std::cout << "Res = 0 = ";
+	std::cout << (a == b) << std::endl;
+	std::cout << "Res = 1 = ";
+	std::cout << (a != b) << std::endl;
+	std::cout << "Res = 0 = ";
+	std::cout << (a >= b) << std::endl;
+	std::cout << "Res = 1 = ";
+	std::cout << (a <= b) << std::endl;
+	std::cout << "Min Res = 1 = ";
+	std::cout << Fixed::min(a, b) << std::endl;
+	std::cout << "Max Res = 5 = ";
+	std::cout << Fixed::max(a, b) << std::endl;
+
+	std::cout << "Post++ Res = 1 = ";
+	std::cout << a;
+	std::cout << std::endl << "Res = 1 = ";
+	std::cout << a++ << std::endl;
+	std::cout << "Res = 1.00391 = ";
+	std::cout << a++ << std::endl;
+	a = 1;
+	std::cout << "Pre++ Res = 1 = ";
+	std::cout << a;
+	std::cout << std::endl << "Res = 1.00391 = ";
+	std::cout << ++a << std::endl;
+	std::cout << "Res = 1.00781 = ";
+	std::cout << ++a << std::endl << std::endl;
+
+	a = 1;
+	std::cout << "Post-- Res = 1 = ";
+	std::cout << a;
+	std::cout << std::endl << "Res = 1 = ";
+	std::cout << a-- << std::endl;
+	std::cout << "Res = 0.996094 = ";
+	std::cout << a-- << std::endl;
+	a = 1;
+	std::cout << "Pre-- Res = 1 = ";
+	std::cout << a;
+	std::cout << std::endl << "Res = 0.996094 = ";
+	std::cout << --a << std::endl;
+	std::cout << "Res = 0.992188 = ";
+	std::cout << --a << std::endl;
 	return 0;
 }

@@ -35,15 +35,17 @@ class	Fixed
 		bool	operator!=(const Fixed &rhs);
 		Fixed	operator+(const Fixed &rhs);
 		Fixed	operator-(const Fixed &rhs);
-		Fixed	operator++(void); //a faire
-		Fixed	operator--(void);// a faire
-		Fixed	operator++(int); // a faire
-		Fixed	operator--(int); // a faire
+		Fixed	operator*(const Fixed &rhs);
+		Fixed	operator/(const Fixed &rhs);
+		Fixed	operator++(void);
+		Fixed	operator--(void);
+		Fixed	operator++(int);
+		Fixed	operator--(int);
 
 		static Fixed		&min(Fixed &a, Fixed &b);
 		static Fixed		&max(Fixed &a, Fixed &b);
-		static Fixed const	&min(const Fixed &a, const Fixed &b); //afaire
-		static Fixed const	&max(const Fixed &a, const Fixed &b);//afaire
+		static Fixed const	&min(const Fixed &a, const Fixed &b);
+		static Fixed const	&max(const Fixed &a, const Fixed &b);
 
 		Fixed	&operator=(const Fixed &rhs);
 
