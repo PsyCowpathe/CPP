@@ -5,18 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: agirona <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/04/14 20:37:16 by agirona           #+#    #+#              #
-#    Updated: 2022/04/20 15:46:46 by agirona          ###   ########lyon.fr    #
+#    Created: 2022/04/20 19:47:37 by agirona           #+#    #+#              #
+#    Updated: 2022/04/22 17:13:34 by agirona          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ClavTrap
+NAME = Brain
 
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
+SRC = main.cpp AAnimal.cpp Brain.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 
 PATH = .
 
-HEADER = ClapTrap.hpp ScavTrap.hpp
+HEADER = AAnimal.hpp Brain.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
 
 OBJ = $(SRC:.cpp=.o)
 

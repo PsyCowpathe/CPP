@@ -1,31 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 15:15:19 by agirona           #+#    #+#             */
-/*   Updated: 2022/04/20 15:51:34 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/22 17:52:22 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#include "Dog.hpp"
 
-# include "iostream"
-# include "Animal.hpp"
-
-class Cat : public Animal
+Dog::Dog()
 {
-    private :
-   
-    public :
-        Cat();
-        Cat(const Cat &cat);
-        ~Cat();
-        Cat     &operator=(const Cat &rhs);
-        void            makeSound() const;
-};
+    type = "Dog";
+    brain = new Brain();
+    std::cout << "Who's a good boy ?" << std::endl;
+}
 
-#endif
+Dog::Dog(const Dog &dog) : AAnimal()
+{
+    *this = dog;
+}
+
+Dog::~Dog()
+{
+    std::cout << ":throw a stick: Go ! Fetch !" << std::endl;
+    delete brain;
+}
+
+Dog     &Dog::operator=(const Dog &rhs)
+{
+    type = rhs.type;
+	delete brain;
+    brain = new Brain(*rhs.brain);
+    return *this;
+}
+
+Brain	*Dog::getBrain(void) const
+{
+	return (this->brain);
+}
+
+void    Dog::makeSound() const
+{
+    std::cout << type + " : Waouf !!!" << std::endl;
+}

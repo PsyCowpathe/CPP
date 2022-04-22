@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 19:15:19 by agirona           #+#    #+#             */
-/*   Updated: 2022/04/04 22:51:23 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/20 17:21:57 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ Fixed	Fixed::operator/(const Fixed &rhs)
 {
 	Fixed	copy;
 
-	copy.value = (rhs.value << wtf) / this->value;
+	copy.value = (this->value << wtf) / rhs.value;
 	return (copy);
 }
 

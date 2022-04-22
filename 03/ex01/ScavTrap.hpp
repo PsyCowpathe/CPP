@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 19:15:19 by agirona           #+#    #+#             */
-/*   Updated: 2022/04/14 20:17:54 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/20 19:29:26 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class ScavTrap : public ClapTrap
 {
     private :
         bool    keep;
+
     public :
         ScavTrap(std::string name);
         ScavTrap();

@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 15:15:19 by agirona           #+#    #+#             */
-/*   Updated: 2022/04/18 16:17:54 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/22 17:12:28 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,14 @@ Dog::~Dog()
 Dog     &Dog::operator=(const Dog &rhs)
 {
     type = rhs.type;
-    brain = rhs.brain;
+	delete brain;
+    brain = new Brain(*rhs.brain);
     return *this;
+}
+
+Brain	*Dog::getBrain(void) const
+{
+	return (this->brain);
 }
 
 void    Dog::makeSound() const

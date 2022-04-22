@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 19:15:19 by agirona           #+#    #+#             */
-/*   Updated: 2022/04/14 18:17:54 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/20 19:31:55 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::ClapTrap()
 {
-    this->name = name;
+    this->name = "default";
     this->life = 10;
     this->mana = 10;
     this->damage = 0;
@@ -79,7 +79,7 @@ void    ClapTrap::beRepaired(unsigned int amount)
     {
         this->life += amount;
         this->mana--;
-        std::cout << "ClapTrap" << this->name << " healed his self of " << amount <<
+        std::cout << "ClapTrap " << this->name << " healed his self of " << amount <<
         " ! He now have " << this->life << " life point :D "<< std::endl;
     }
     else if (this->life >= 1)

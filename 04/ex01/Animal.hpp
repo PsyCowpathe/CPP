@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 15:15:19 by agirona           #+#    #+#             */
-/*   Updated: 2022/04/18 16:17:54 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/22 17:05:04 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ANIMAL_HPP
 
 # include "iostream"
+# include "Brain.hpp"
 
 class Animal
 {
@@ -25,6 +26,7 @@ class Animal
         Animal(const Animal &animal);
         virtual ~Animal();
         Animal          &operator=(const Animal &rhs);
+		virtual Brain	*getBrain(void) const;
         virtual void    makeSound() const;
 };
 

@@ -6,11 +6,11 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 15:15:19 by agirona           #+#    #+#             */
-/*   Updated: 2022/04/22 17:05:06 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/22 17:13:33 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "WrongAnimal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
@@ -18,7 +18,7 @@
 
 int     main(void)
 {
-    Animal  *tab[10];
+    AAnimal  *tab[10];
     int     i;
 
 	std::cout << std::endl << "||  Create  ||" << std::endl << std::endl;

@@ -1,46 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 15:15:19 by agirona           #+#    #+#             */
-/*   Updated: 2022/04/22 17:04:59 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/22 17:11:12 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal()
+AAnimal::AAnimal()
 {
     std::cout << "God (you) created a new Animal !" << std::endl;
     type = "Animal";
 }
 
-Animal::Animal(const Animal &animal)
+AAnimal::AAnimal(const AAnimal &animal)
 {
     *this = animal;
 }
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
     std::cout << "God is furious ! He made an Animal disapear from surface of earth :O" << std::endl;
 }
 
-Animal  &Animal::operator=(const Animal &rhs)
+AAnimal  &AAnimal::operator=(const AAnimal &rhs)
 {
     this->type = rhs.type;
 
     return *this;
 }
 
-Brain	*Animal::getBrain(void) const
+Brain	*AAnimal::getBrain(void) const
 {
 	return (NULL);
 }
 
-void    Animal::makeSound() const
+void    AAnimal::makeSound() const
 {
     std::cout << type + " : Lacouloukakiii !!!" << std::endl;
 }

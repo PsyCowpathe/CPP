@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 19:24:59 by agirona           #+#    #+#             */
-/*   Updated: 2022/04/20 15:24:34 by agirona          ###   ########lyon.fr   */
+/*   Created: 2022/04/18 15:15:19 by agirona           #+#    #+#             */
+/*   Updated: 2022/04/18 16:17:54 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-#include <iostream>
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-int main( void )
+# include <iostream>
+# include "WrongAnimal.hpp"
+
+class WrongCat : public WrongAnimal
 {
-	Fixed a;
-	Fixed b( a );
-	Fixed c;
-	c = b;
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-	return 0;
-}
+    protected :
+
+        std::string     type;
+
+    public :
+        WrongCat();
+        WrongCat(const WrongCat &wrongcat);
+        ~WrongCat();
+        WrongCat     &operator=(const WrongCat &rhs);
+        void            makeSound() const;
+};
+
+#endif

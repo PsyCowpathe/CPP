@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 15:15:19 by agirona           #+#    #+#             */
-/*   Updated: 2022/04/18 16:17:54 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/22 17:12:30 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Dog : public Animal
         Dog(const Dog &dog);
         ~Dog();
         Dog     &operator=(const Dog &rhs);
+		Brain	*getBrain(void) const;
         void            makeSound() const;
 };
 

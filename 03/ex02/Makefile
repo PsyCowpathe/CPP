@@ -6,19 +6,21 @@
 #    By: agirona <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/14 20:37:16 by agirona           #+#    #+#              #
-#    Updated: 2022/04/14 20:38:00 by agirona          ###   ########lyon.fr    #
+#    Updated: 2022/04/20 19:39:12 by agirona          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ClavTrap
+NAME = FragTrap
 
-SRC = main.cpp ClapTrap.cpp ClavTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
-HEADER = ClapTrap.hpp ClavTrap.hpp
+HEADER = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
+
+PATH = .
 
 OBJ = $(SRC:.cpp=.o)
 
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -I $(HEADER)
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -I $(PATH)
 
 %.o: %.cpp $(HEADER)
 	c++ $(CPPFLAGS) -c $< -o $@

@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 15:15:19 by agirona           #+#    #+#             */
-/*   Updated: 2022/04/20 15:51:34 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/18 16:17:54 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#include "WrongAnimal.hpp"
 
-# include "iostream"
-# include "Animal.hpp"
-
-class Cat : public Animal
+WrongAnimal::WrongAnimal()
 {
-    private :
-   
-    public :
-        Cat();
-        Cat(const Cat &cat);
-        ~Cat();
-        Cat     &operator=(const Cat &rhs);
-        void            makeSound() const;
-};
+    type = "Abomination";
+    std::cout << "Heew a new abomination was created." << std::endl;
+}
 
-#endif
+WrongAnimal::WrongAnimal(const WrongAnimal &wronganimal)
+{
+    *this = wronganimal;
+}
+
+WrongAnimal::~WrongAnimal()
+{
+    std::cout << "This monstrosity is finaly gone !" << std::endl;
+}
+
+WrongAnimal     &WrongAnimal::operator=(const WrongAnimal &rhs)
+{
+    this->type = rhs.type;
+     return *this;
+}
+
+void    WrongAnimal::makeSound() const
+{
+    std::cout << "bjkjdadks kill ... dwafwad me" << std::endl;
+}
