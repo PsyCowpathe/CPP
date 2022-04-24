@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 20:57:30 by agirona           #+#    #+#             */
-/*   Updated: 2022/04/24 19:42:37 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/24 20:35:26 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class	Form
 		Form(const std::string name, const int sign, const int exec);
 		Form();
 		Form(const Form &form);
-		~Form();
+		virtual ~Form();
 		Form	&operator=(const Form &rhs);
 		std::string		getName() const;
 		std::string		getSignatory() const;
