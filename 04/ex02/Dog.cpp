@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 15:15:19 by agirona           #+#    #+#             */
-/*   Updated: 2022/04/22 17:52:22 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/25 18:19:58 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ Dog::Dog()
 
 Dog::Dog(const Dog &dog) : AAnimal()
 {
+	this->brain = NULL;
     *this = dog;
 }
 

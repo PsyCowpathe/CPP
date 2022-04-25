@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 15:15:19 by agirona           #+#    #+#             */
-/*   Updated: 2022/04/22 17:12:29 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/25 18:18:09 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 Cat::Cat()
 {
+    std::cout << "What a cute litle cat, ps ps ps ps." << std::endl;
     type = "Cat";
     brain = new Brain();
-    std::cout << "What a cute litle cat, ps ps ps ps." << std::endl;
 }
 
 Cat::Cat(const Cat &cat) : Animal()
 {
+	this->brain = NULL;
     *this = cat;
 }
 
