@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 20:12:03 by agirona           #+#    #+#             */
-/*   Updated: 2022/04/24 20:37:52 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/26 11:34:10 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,38 @@ int		main(void)
 {
 	Intern	kevin;
 
-	std::cout << std::endl << "||  TEST 1 DONT EXIST  ||" << std::endl << std::endl;	
+	std::cout << std::endl << "||  INVALID FORM  ||" << std::endl << std::endl;	
 	kevin.makeForm("test", "kevin");
 
-	std::cout << "||  TEST 1 PRESIDENTIAL  ||" << std::endl << std::endl;	
+	std::cout << std::endl << "||  SHRUBBERY CREATION ... CREATION  ||" << std::endl << std::endl;	
+	try
+	{
+		Bureaucrat	patrick("Patrick", 1);
+		Form *test(kevin.makeForm("shrubbery creation", "kevin"));
+		patrick.signForm(*test);
+		test->execute(patrick);
+		delete test;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << std::endl << "||  ROBOTOMY REQUEST CREATION  ||" << std::endl << std::endl;	
+	try
+	{
+		Bureaucrat	patrick("Patrick", 1);
+		Form *test(kevin.makeForm("robotomy request", "kevin"));
+		patrick.signForm(*test);
+		test->execute(patrick);
+		delete test;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << std::endl << "||  PRESIDENTIAL PARDON CREATION  ||" << std::endl << std::endl;	
 	try
 	{
 		Bureaucrat	patrick("Patrick", 1);

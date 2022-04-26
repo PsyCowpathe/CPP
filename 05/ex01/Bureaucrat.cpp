@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 18:15:12 by agirona           #+#    #+#             */
-/*   Updated: 2022/04/22 22:31:25 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/26 11:09:35 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 Bureaucrat::Bureaucrat(const std::string &name, const int grade) : _name(name)
 {
+	if (grade < 1)
+		throw GradeTooHightException();
+	if (grade > 150)
+		throw GradeTooLowException();
 	this->_grade = grade;
 	std::cout << "Congrats " + this->_name + " you are hired !" << std::endl;
 }
@@ -92,10 +96,10 @@ void	Bureaucrat::signForm(Form &form)
 
 const char	*Bureaucrat::GradeTooHightException::what() const throw()
 {
-	return ("Grade is too hight to be upgraded");
+	return ("Grade is too hight.");
 }
 
 const char	*Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade is too low to be downgraded");
+	return ("Grade is too low.");
 }

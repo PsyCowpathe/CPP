@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 20:12:03 by agirona           #+#    #+#             */
-/*   Updated: 2022/04/24 19:42:41 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/26 11:29:01 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,42 +18,68 @@
 
 int		main(void)
 {
-	std::cout << "||  TEST 1 TREE  ||" << std::endl << std::endl;	
+	std::cout << "||  SHRUBBERY  ||" << std::endl << std::endl;	
 	try
 	{
 		ShrubberyCreationForm	test("Garden");
 		Bureaucrat	antoine("Antoine", 136);
-		antoine.signForm(test);
-		test.execute(antoine);
+		antoine.signForm(test); //success
+		test.execute(antoine); //success
 	}
 	catch (std::exception &e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "EXCEPTION : " << e.what() << std::endl;
 	}
 
-	std::cout << std::endl << "||  TEST 2 ROBOTOMY  ||" << std::endl << std::endl;	
+	std::cout << std::endl << "||  ROBOTOMY  ||" << std::endl << std::endl;	
 	try
 	{
 		RobotomyRequestForm	test("Charle");
 		Bureaucrat	patrick("Patrick", 45);
-		patrick.signForm(test);
-		test.execute(patrick);
+		patrick.signForm(test); //success
+		test.execute(patrick); //success
 	}
 	catch (std::exception &e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "EXCEPTION : " << e.what() << std::endl;
 	}
 
-	std::cout << std::endl << "||  TEST 2 PARDON  ||" << std::endl << std::endl;	
+	std::cout << std::endl << "||  PRESIDENTIAL PARDON  ||" << std::endl << std::endl;	
 	try
 	{
 		PresidentialPardonForm	test("Joe Dalton");
 		Bureaucrat	willfried("Willfried", 6);
-		willfried.signForm(test);
-		willfried.executeForm(test);
+		willfried.signForm(test); //success
+		willfried.executeForm(test); //too low
 	}
 	catch (std::exception &e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "EXCEPTION : " << e.what() << std::endl;
 	}
+
+	std::cout << std::endl << "||  UNSIGNED  ||" << std::endl << std::endl;	
+	try
+	{
+		PresidentialPardonForm	test("Joe Dalton");
+		Bureaucrat	willfried("Willfried", 6);
+		test.execute(willfried); // UNSIGNED
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "EXCEPTION : " << e.what() << std::endl;
+	}
+
+	std::cout << std::endl << "||  TOO LOW EXECUTE  ||" << std::endl << std::endl;	
+	try
+	{
+		PresidentialPardonForm	test("Joe Dalton");
+		Bureaucrat	willfried("Willfried", 6);
+		test.beSigned(willfried); //success
+		test.execute(willfried); // TOO LOW
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "EXCEPTION : " << e.what() << std::endl;
+	}
+
 }
