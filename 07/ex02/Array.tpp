@@ -81,7 +81,7 @@ const char	*Array<T>::OutOfRangeException::what() const throw()
 template <typename T>
 T	&Array<T>::operator[](unsigned int i) const
 {
-	if (i < 0 || i > _size) // may add _size == 0 for real empty array
+	if (_size == 0 || i < 0 || i > _size) // may add _size == 0 for real empty array
 		throw OutOfRangeException();
 	return (_array[i]);
 }

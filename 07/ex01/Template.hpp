@@ -6,7 +6,7 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 15:52:50 by agirona           #+#    #+#             */
-/*   Updated: 2022/04/26 16:13:57 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/27 17:10:37 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,22 @@
 # include <iostream>
 
 template <typename T>
-void	iter(T *addr, int size, void (*function)(T))
+void	iter(T *addr, unsigned int size, void (*function)(T &))
 {
-	int		i;
+	unsigned int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		function(addr[i]);
+		i++;
+	}
+}
+
+template <typename T>
+void	iter(const T *addr, unsigned int size, void (*function)(const T &))
+{
+	unsigned int	i;
 
 	i = 0;
 	while (i < size)
