@@ -6,56 +6,79 @@
 /*   By: agirona <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 19:43:09 by agirona           #+#    #+#             */
-/*   Updated: 2022/04/27 21:52:17 by agirona          ###   ########lyon.fr   */
+/*   Updated: 2022/04/28 15:44:24 by agirona          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <algorithm>
 
+int		gen(const unsigned int limit)
+{
+	return (rand() % limit);
+}
+
 int		main(void)
 {
-	Span	test(4);
-	Span::iterator	i;
-	Span::iterator	e;
+	Span	test(10);
 
-	/*test.addNumber(4);
-	test.addNumber(10);
-	test.addNumber(6);
-	test.addNumber(8);
-	test.addNumber(1);
-	test.addNumber(9);
-	test.addNumber(2);
-	test.addNumber(5);
-	test.addNumber(7);
-	test.addNumber(3);*/
+	std::cout << "||  CORRECT ADD NUMBER RANGE  ||" << std::endl;
+	srand(time(NULL));
+	test.rangeAddNumber(9, gen, 10);
 
+	std::cout << std::endl << "||  CORRECT ADD NUMBER  ||" << std::endl;
+	test.addNumber(4);
 
-	test.addNumber(7);
-	test.addNumber(6);
-	test.addNumber(0);
-	test.addNumber(10);
-
-	Span	copy(test);
-	i = test.begin();
-	e = test.end();
-	std::sort(copy.begin(), copy.end());
-	std::cout << " Original : " << std::endl;
-	while (i != e)
+	std::cout << std::endl << "||  INCORRECT ADD NUMBER  ||" << std::endl;
+	try
 	{
-		std::cout << *i << std::endl;
-		i++;
+		test.addNumber(4);
 	}
-	
-	i = copy.begin();
-	e = copy.end();
-	std::cout << " Sort : " << std::endl;
-	while (i != e)
+	catch (std::exception(&e))
 	{
-		std::cout << *i << std::endl;
-		i++;
+		std::cout << "EXCEPTION : " << e.what() << std::endl;
 	}
-	std::cout << "shortest = " << copy.shortestSpan() << std::endl;
-	std::cout << "longest = " << copy.longestSpan() << std::endl;
+
+	std::cout << std::endl << "||  INCORRECT ADD NUMBER RANGE  ||" << std::endl;
+	try
+	{
+		test.rangeAddNumber(1, gen, 10);
+	}
+	catch (std::exception(&e))
+	{
+		std::cout << "EXCEPTION : " << e.what() << std::endl;
+	}
+
+	std::cout << std::endl << "||  SHORTEST && LONGEST SPAN  ||" << std::endl;
+	std::cout << "Max = " << *std::max_element(test.begin(), test.end()) << std::endl;
+	std::cout << "Min = " << *std::min_element(test.begin(), test.end()) << std::endl;
+	std::cout << "Shortest = " << test.shortestSpan() << std::endl;
+	std::cout << "Longest = " << test.longestSpan() << std::endl;
+
+	std::cout << std::endl << "||  1 ELEMENT SPAN  ||" << std::endl;
+	try
+	{
+		Span	one(1);
+
+		one.rangeAddNumber(1, gen, 10);
+		std::cout << "Longest = " << one.longestSpan() << std::endl;
+	}
+	catch (std::exception(&e))
+	{
+		std::cout << "EXCEPTION : " << e.what() << std::endl;
+	}
+
+	std::cout << std::endl << "||  EMPTY SPAN  ||" << std::endl;
+	try
+	{
+		Span	empty(0);
+
+		std::cout << "Shortest = " << empty.shortestSpan() << std::endl;
+	}
+	catch (std::exception(&e))
+	{
+		std::cout << "EXCEPTION : " << e.what() << std::endl;
+	}
+
 	return (0);
 }
